@@ -1,4 +1,4 @@
-# flutter_ulung
+# aplikasi_gym_palembang
 
 A new Flutter project.
 

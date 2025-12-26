@@ -1,102 +1,105 @@
-import 'package:flutter_ulung/screens/favorite_screen.dart';
-import 'package:flutter_ulung/screens/home_screen.dart';
-import 'package:flutter_ulung/screens/ProfileScreen.dart';
-import 'package:flutter_ulung/screens/search_screen.dart';
-import 'package:flutter_ulung/screens/SignInScreen.dart';
-import 'package:flutter_ulung/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ulung/screens/detail_screen.dart';
+import 'package:aplikasi_gym_palembang/screens/signin_Screens.dart';
+import 'package:aplikasi_gym_palembang/screens/SignUp_Screens.dart';
+import 'package:aplikasi_gym_palembang/screens/detail_screens.dart';
+import 'package:aplikasi_gym_palembang/screens/favorite_screens.dart';
+import 'package:aplikasi_gym_palembang/screens/home_screens.dart';
+import 'package:aplikasi_gym_palembang/screens/profile_screens.dart';
+import 'package:aplikasi_gym_palembang/screens/search_screens.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
-  State createState() => _MainScreenState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      initialRoute: '/',
+      routes: {
+        '/': (context) => MainScreen(),
+        '/signin': (context) => SignInScreen(),
+        '/signup': (context) => SignUpScreen(),
+      },
+      debugShowCheckedModeBanner: false,
+      title: 'Aplikasi Gym',
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          iconTheme: IconThemeData(color: Colors.blueGrey),
+          titleTextStyle: TextStyle(
+            color: Colors.blueGrey,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey).copyWith(
+          primary: Colors.blueGrey,
+          surface: Colors.blueGrey[50],
+        ),
+        useMaterial3: true,
+      ),
+    );
+  }
 }
 
-class _MainScreenState extends State {
-// TODO: 1. Deklarasikan variable
+class MainScreen extends StatefulWidget {
+  const MainScreen({Key? key}) : super(key: key);
+
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
-  final List _children = [
+
+  List<Widget> _children = [
     HomeScreen(),
     SearchScreen(),
     FavoriteScreen(),
-    ProfileScreen()
+    ProfileScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-// TODO: 2. Buat properti body berupa widget yang ditampilkan
       body: _children[_currentIndex],
-// TODO: 3. Buat properti bottomNavigationBar dengan nilai Theme
-      bottomNavigationBar: Theme(data: Theme.of(context).copyWith(
-          canvasColor: Colors.deepPurple[50]),
+      bottomNavigationBar: Theme(
+        data: Theme.of(context).copyWith(
+          canvasColor: Colors.blueGrey[50],
+        ),
         child: BottomNavigationBar(
           currentIndex: _currentIndex,
-          onTap: (index){
+          onTap: (int index) {
             setState(() {
               _currentIndex = index;
             });
           },
+          selectedItemColor: Colors.blueGrey,
+          unselectedItemColor: Colors.blueGrey[100],
+          showSelectedLabels: true,
+          showUnselectedLabels: true,
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home, color: Colors.deepPurple,),
+              icon: Icon(Icons.home, color: Colors.grey),
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.search, color: Colors.deepPurple,),
+              icon: Icon(Icons.search, color: Colors.grey),
               label: 'Search',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.favorite, color: Colors.deepPurple,),
+              icon: Icon(Icons.favorite, color: Colors.grey),
               label: 'Favorite',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person, color: Colors.deepPurple,),
-              label: 'Person',
+              icon: Icon(Icons.person, color: Colors.grey),
+              label: 'Profile',
             ),
           ],
-          selectedItemColor: Colors.deepPurple,
-          unselectedItemColor: Colors.deepPurple[100],
-          showUnselectedLabels: true,
-        ),),
-// TODO: 4. Buat data dan child dari Theme
-
-    );
-  }
-}
-
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-// This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Wisata Candi',
-        theme: ThemeData(
-          appBarTheme: const AppBarTheme(
-              iconTheme: IconThemeData(color: Colors.deepPurple),
-              titleTextStyle: TextStyle(
-                color: Colors.deepPurple,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              )
-          ),
-          colorScheme:
-          ColorScheme.fromSeed(seedColor: Colors.deepPurple).copyWith(
-            primary: Colors.deepPurple,
-            surface: Colors.deepPurple[50],
-          ),
-          useMaterial3: true,
         ),
-        home: SignUpScreen()
+      ),
     );
   }
 }
