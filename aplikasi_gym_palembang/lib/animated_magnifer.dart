@@ -1,25 +1,44 @@
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 class AnimatedMagnifier extends StatefulWidget {
-  const AnimatedMagnifier({Key? key}) : super(key: key);
+  final double size;
+  final String assetPath;
+  final bool enableRotate;
+
+  const AnimatedMagnifier({
+    Key? key,
+    this.size = 56,
+    this.assetPath = 'assets/magnifier.png',
+    this.enableRotate = true,
+  }) : super(key: key);
 
   @override
-  AnimatedMagnifierState createState() => AnimatedMagnifierState();
+  State<AnimatedMagnifier> createState() => _AnimatedMagnifierState();
 }
 
-class AnimatedMagnifierState extends State<AnimatedMagnifier> with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _animation;
+class _AnimatedMagnifierState extends State<AnimatedMagnifier>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+  late final Animation<double> _scale;
+  late final Animation<double> _glow;
+  late final Animation<double> _rotate;
 
   @override
   void initState() {
     super.initState();
+
     _controller = AnimationController(
-      duration: const Duration(seconds: 1),
+      duration: const Duration(milliseconds: 1100),
       vsync: this,
     )..repeat(reverse: true);
 
-    _animation = Tween(begin: 1.0, end: 0.8).animate(_controller);
+    final curved = CurvedAnimation(parent: _controller, curve: Curves.easeInOut);
+
+    _scale = Tween<double>(begin: 1.0, end: 0.88).animate(curved);
+    _glow = Tween<double>(begin: 0.10, end: 0.25).animate(curved);
+
+    _rotate = Tween<double>(begin: -0.03, end: 0.03).animate(curved);
   }
 
   @override
@@ -31,14 +50,40 @@ class AnimatedMagnifierState extends State<AnimatedMagnifier> with SingleTickerP
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: _animation,
-      builder: (context, child) {
-        return Transform.scale(
-          scale: _animation.value,
-          child: child,
+      animation: _controller,
+      builder: (context, _) {
+        final angle = widget.enableRotate ? _rotate.value : 0.0;
+
+        return Transform.rotate(
+          angle: angle,
+          child: Transform.scale(
+            scale: _scale.value,
+            child: Container(
+              width: widget.size,
+              height: widget.size,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: Theme.of(context)
+                        .colorScheme
+                        .primary
+                        .withOpacity(_glow.value),
+                    blurRadius: 18,
+                    spreadRadius: 2,
+                  )
+                ],
+              ),
+              child: ClipOval(
+                child: Image.asset(
+                  widget.assetPath,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
         );
       },
-      child: Image.asset('assets/magnifier.png'),
     );
   }
 }
