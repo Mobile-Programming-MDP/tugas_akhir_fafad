@@ -58,7 +58,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
           bottomLeft: Radius.circular(18),
           bottomRight: Radius.circular(18),
         ),
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [

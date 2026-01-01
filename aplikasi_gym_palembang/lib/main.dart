@@ -19,9 +19,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) => MainScreen(),
-        '/signin': (context) => SignInScreen(),
-        '/signup': (context) => SignUpScreen(),
+        '/': (context) => const MainScreen(),
+        '/signin': (context) => const SignInScreen(),
+        '/signup': (context) => const SignUpScreen(),
       },
       debugShowCheckedModeBanner: false,
       title: 'Aplikasi Gym',
@@ -54,11 +54,11 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
 
-  List<Widget> _children = [
-    HomeScreen(),
-    SearchScreen(),
-    FavoriteScreen(),
-    ProfileScreen(),
+  final List<Widget> _children = [
+    const HomeScreen(),
+    const SearchScreen(),
+    const FavoriteScreen(),
+    const ProfileScreen(),
   ];
 
   @override
@@ -80,7 +80,7 @@ class _MainScreenState extends State<MainScreen> {
           unselectedItemColor: Colors.blueGrey[100],
           showSelectedLabels: true,
           showUnselectedLabels: true,
-          items: [
+          items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home, color: Colors.grey),
               label: 'Home',

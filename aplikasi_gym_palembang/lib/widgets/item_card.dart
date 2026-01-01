@@ -6,7 +6,7 @@ import 'package:aplikasi_gym_palembang/screens/detail_screens.dart';
 class ItemCard extends StatelessWidget {
   final Gym gym;
 
-  ItemCard({Key? key, required this.gym}) : super(key: key);
+  const ItemCard({Key? key, required this.gym}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class ItemCard extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),
-        margin: EdgeInsets.all(4),
+        margin: const EdgeInsets.all(4),
         elevation: 1,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,7 +45,7 @@ class ItemCard extends StatelessWidget {
               ),
               child: Text(
                 gym.name,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
@@ -58,7 +58,7 @@ class ItemCard extends StatelessWidget {
               ),
               child: Text(
                 gym.type,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 12,
                 ),
               ),

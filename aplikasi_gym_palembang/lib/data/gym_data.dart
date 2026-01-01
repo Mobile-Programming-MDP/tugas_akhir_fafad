@@ -41,7 +41,7 @@ var gymList = [
     description:
     'Numero Uno Fitness adalah pusat kebugaran yang terletak di Jl. Veteran, Palembang. Dengan jam operasional yang nyaman, gym ini menawarkan berbagai program latihan untuk meningkatkan kebugaran anggotanya.',
     built: '2015',
-    type: 'Fitness Center',
+    type: 'Gym, Aerobic',
     schedule: {'Senin - Minggu': '09:00 - 22:00'},
     imageAsset: 'images/numero_uno_fitness.png',
     imageUrls: [
@@ -168,126 +168,231 @@ var gymList = [
 
     ],
     isFavorite: false,
+
+/// 10
+
   ),
-    Gym(
-    name: 'Gold’s Gym Palembang Icon',
-    location: 'Palembang Icon Mall, Jl. POM IX',
-    description:
-        'Gold’s Gym Palembang Icon merupakan pusat kebugaran modern yang berada di Palembang Icon Mall dengan fasilitas lengkap dan kelas kebugaran beragam.',
-    built: '2018',
+      Gym(
+    name: 'FIT HUB Sukamto',
+    location: 'Jl. R. Sukamto No.88, 8 Ilir, Kec. Ilir Tim. II, Kota Palembang, Sumatera Selatan 30111, Indonesia',
+    description: 'Gym populer dengan fasilitas lengkap dan area latihan luas. Banyak anggota rutin karena suasana seru dan peralatan modern.',
+    built: '2022',
     type: 'Fitness Center',
     schedule: {'Senin - Minggu': '06:00 - 22:00'},
-    imageAsset: 'images/golds_gym_pi.jpeg',
-    imageUrls: [],
+    imageAsset: 'images/fithub_gym.png',
+    imageUrls: [
+      'images/fithub_gym2.png',
+      'images/fithub_gym3.png',
+      'images/fithub_gym4.png',
+    ],
     isFavorite: false,
   ),
+
   Gym(
-    name: 'Celebrity Fitness Palembang Square',
-    location: 'Palembang Square Mall, Jl. Angkatan 45',
-    description:
-        'Celebrity Fitness Palembang Square menawarkan fasilitas kebugaran modern dengan berbagai kelas seperti yoga, cardio, dan strength training.',
-    built: '2017',
-    type: 'Fitness Center',
-    schedule: {'Senin - Minggu': '06:00 - 22:00'},
-    imageAsset: 'images/celebrity_fitness_ps.jpeg',
-    imageUrls: [],
-    isFavorite: false,
-  ),
-  Gym(
-    name: 'Fitness First Palembang',
-    location: 'Transmart Palembang, Jl. Radial',
-    description:
-        'Fitness First Palembang merupakan pusat kebugaran premium dengan peralatan modern dan instruktur profesional.',
+    name: 'D Gym Palembang',
+    location: 'Jl. Tj. Barangan, RT.48/RW.10, Demang Lebar Daun, Kec. Ilir Bar. I, Kota Palembang, Sumatera Selatan 30139',
+    description: 'Gym cozy & ramah pemula di kawasan Demang Lebar Daun dengan instruktur yang membantu.',
     built: '2019',
-    type: 'Fitness Center',
+    type: 'Wellness & Gym',
     schedule: {'Senin - Minggu': '06:00 - 22:00'},
-    imageAsset: 'images/fitness_first_palembang.jpeg',
-    imageUrls: [],
+    imageAsset: 'images/dgym.png',
+    imageUrls: const [],
     isFavorite: false,
   ),
+
   Gym(
-    name: 'BFF Fitness',
-    location: 'Jl. Jendral Sudirman, Ilir Timur I',
-    description:
-        'BFF Fitness adalah pusat kebugaran yang menyediakan fasilitas latihan beban dan cardio untuk masyarakat Palembang.',
-    built: '2015',
-    type: 'Gym',
-    schedule: {'Senin - Minggu': '07:00 - 21:00'},
-    imageAsset: 'images/bff_fitness.jpeg',
-    imageUrls: [],
-    isFavorite: false,
-  ),
-  Gym(
-    name: 'Muscle Camp Palembang',
-    location: 'Jl. Srijaya Negara, Bukit Besar',
-    description:
-        'Muscle Camp Palembang dikenal sebagai tempat latihan angkat beban dengan suasana serius dan fokus strength training.',
-    built: '2014',
+    name: 'GoGym',
+    location: 'Jl. Perintis Kemerdekaan No.1112, Duku, Kec. Ilir Tim. II, Kota Palembang, Sumatera Selatan',
+    description: 'Gym baru dengan ruang latihan yang luas, alat berkualitas dan fokus pada semua level latihan.',
+    built: '2023',
     type: 'Gym',
     schedule: {'Senin - Minggu': '06:00 - 22:00'},
-    imageAsset: 'images/muscle_camp.jpeg',
-    imageUrls: [],
+    imageAsset: 'images/GOGYM.png',
+    imageUrls: const [],
     isFavorite: false,
   ),
+
   Gym(
-    name: 'Xtreme Gym Palembang',
-    location: 'Jl. Kolonel H. Burlian',
-    description:
-        'Xtreme Gym Palembang menyediakan fasilitas fitness dan bodybuilding dengan harga terjangkau.',
-    built: '2013',
-    type: 'Gym',
-    schedule: {'Senin - Minggu': '07:00 - 22:00'},
-    imageAsset: 'images/xtreme_gym.jpeg',
-    imageUrls: [],
-    isFavorite: false,
-  ),
-  Gym(
-    name: 'Body Fit Gym',
-    location: 'Jl. Mayor Ruslan, Ilir Timur II',
-    description:
-        'Body Fit Gym merupakan gym lokal Palembang yang menyediakan latihan kebugaran dasar hingga menengah.',
+    name: 'Power Gym',
+    location: '3Q5J+VCV, Jl. Sapta Marga, Bukit Sangkal, Kec. Kalidoni, Kota Palembang, Sumatera Selatan 30961',
+    description: 'Gym bersih dan terawat di area Bukit Sangkal, populer di kalangan lokal.',
     built: '2016',
     type: 'Gym',
-    schedule: {'Senin - Minggu': '07:00 - 21:00'},
-    imageAsset: 'images/body_fit_gym.jpeg',
-    imageUrls: [],
+    schedule: {'Senin - Minggu': '09:00 - 22:00'},
+    imageAsset: 'images/powergym.png',
+    imageUrls: const [],
     isFavorite: false,
   ),
+
   Gym(
-    name: 'Arena Fitness',
-    location: 'Jl. MP Mangkunegara',
-    description:
-        'Arena Fitness menyediakan fasilitas kebugaran indoor dengan fokus pada latihan kesehatan dan kebugaran umum.',
-    built: '2012',
-    type: 'Fitness Center',
-    schedule: {'Senin - Minggu': '06:30 - 21:00'},
-    imageAsset: 'images/arena_fitness.jpeg',
-    imageUrls: [],
-    isFavorite: false,
-  ),
-  Gym(
-    name: 'Universal Gym Palembang',
-    location: 'Jl. Veteran, Ilir Timur I',
-    description:
-        'Universal Gym Palembang merupakan gym lokal dengan fasilitas latihan beban dan cardio yang cukup lengkap.',
-    built: '2011',
-    type: 'Gym',
-    schedule: {'Senin - Minggu': '06:00 - 22:00'},
-    imageAsset: 'images/universal_gym.jpeg',
-    imageUrls: [],
-    isFavorite: false,
-  ),
-  Gym(
-    name: 'Pro Fitness Palembang',
-    location: 'Jl. Demang Lebar Daun',
-    description:
-        'Pro Fitness Palembang menyediakan fasilitas kebugaran dengan suasana nyaman dan program latihan harian.',
+    name: 'TEN FIT Palembang',
+    location: 'Jl. Demang Lebar Daun No.4-7, Demang Lebar Daun, Kec. Ilir Bar. I, Kota Palembang, Sumatera Selatan 30137',
+    description: 'Fitness center dengan fasilitas lengkap untuk kardio dan strength training.',
     built: '2018',
     type: 'Fitness Center',
-    schedule: {'Senin - Minggu': '07:00 - 22:00'},
-    imageAsset: 'images/pro_fitness_palembang.jpeg',
-    imageUrls: [],
+    schedule: {'Senin - Minggu': '08:00 - 22:00'},
+    imageAsset: 'images/tenfit.png',
+    imageUrls: [
+      'images/tenfit2.png',
+      'images/tenfit3.png',
+    ],
     isFavorite: false,
   ),
+
+  Gym(
+    name: '7 GYM & STUDIO',
+    location: 'Jl. R.A. Abusamah No.05, Suka Bangun, Kec. Sukarami, Kota Palembang, Sumatera Selatan 30961',
+    description: 'GYM dan studio kebugaran dengan variasi kelas latihan.',
+    built: '2019',
+    type: 'Fitness Center',
+    schedule: {'Senin - Minggu': '05:00 - 23:00'},
+    imageAsset: 'images/7gym.png',
+    imageUrls: const [],
+    isFavorite: false,
+  ),
+
+  Gym(
+    name: 'LIFE STYLE UP Fitness & Aerobic',
+    location: 'Jl. Sultan M. Mansyur No.11, Bukit Lama, Kec. Ilir Bar. I, Kota Palembang, Sumatera Selatan 30137',
+    description: 'Gym dengan fokus aerobik dan fun workouts.',
+    built: '2017',
+    type: 'Gymnastics & Fitness',
+    schedule: {'Senin - Minggu': '06:00 - 22:00'},
+    imageAsset: 'images/life.png',
+    imageUrls: [
+      'images/life2.png',
+      'images/life3.png',
+    ],
+    isFavorite: false,
+  ),
+
+  Gym(
+    name: 'Solitaire Fitness Palembang',
+    location: 'Jl. Veteran No.999, 9 Ilir, Kec. Ilir Tim. II, Kota Palembang, Sumatera Selatan 30114',
+    description: 'Fitness stylish di lokasi strategis, cocok untuk urban workout.',
+    built: '2018',
+    type: 'Fitness Center',
+    schedule: {'Senin - Minggu': '09:00 - 21:00'},
+    imageAsset: 'images/solitaire.png',
+    imageUrls: [
+      'images/solitaire2.png',
+      'images/solitaire3.png',
+    ],
+    isFavorite: false,
+  ),
+
+  Gym(
+    name: 'Kitafit Gym & Fitness',
+    location: 'Jl. Letnan Hadin No.1731, 20 Ilir D. III, Kec. Ilir Tim. I, Kota Palembang, Sumatera Selatan 30129',
+    description: 'Gym dengan rating tinggi karena kebersihan, dan peralatan update.',
+    built: '2020',
+    type: 'Gym',
+    schedule: {'Senin - Minggu': '07:00 - 22:00'},
+    imageAsset: 'images/kitafit.png',
+    imageUrls: [
+      'images/kitafit2.png',
+    ],
+    isFavorite: false,
+  ),
+
+  Gym(
+    name: 'TEN GYM',
+    location: 'Jl. Jaksa Agung R. Soeprapto No.329, Kemang Manis, Kec. Ilir Bar. II, Kota Palembang, Sumatera Selatan 30139',
+    description: 'Gym dengan alat yang lengkap dan suasana yang nyaman.',
+    built: '2018',
+    type: 'Gym',
+    schedule: {'Senin - Minggu': '08:00 - 22:00'},
+    imageAsset: 'images/tengym.png',
+    imageUrls: [
+      'images/tengym2.png',
+    ],
+    isFavorite: false,
+  ),
+
+  Gym(
+    name: 'Svastha Gym 2 Talang Putri',
+    location: 'Jl. Kapten Abdullah, Talang Putri, Kec. Plaju, Kota Palembang, Sumatera Selatan 30119',
+    description: 'Gym yang populer di daerah Talang Putri.',
+    built: '2019',
+    type: 'Gym',
+    schedule: {'Senin - Minggu': '08:00 - 22:00'},
+    imageAsset: 'images/svasta.png',
+    imageUrls: [
+      'images/svasta2.png',
+      'images/svasta3.png',
+    ],
+    isFavorite: false,
+  ),
+
+  Gym(
+    name: 'Ōkami Fitness',
+    location: 'Jl. Kolonel H. Barlian No.188 KM9, Karya Baru, Kec. Alang-Alang Lebar, Kota Palembang, Sumatera Selatan 30152',
+    description: 'Fitness center dengan latar jepang dan jam operasi yang besar.',
+    built: '2021',
+    type: 'Fitness Center',
+    schedule: {'Senin - Minggu': '05:00 - 00:00'},
+    imageAsset: 'images/okami.png',
+    imageUrls: [
+      'images/okami2.png',
+      'images/okami3.png',
+    ],
+    isFavorite: false,
+  ),
+
+  Gym(
+    name: 'Loyal Fitness Indonesia',
+    location: '2Q85+F52, Jl. Jend. Sudirman, 18 Ilir, Kec. Ilir Tim. I, Kota Palembang, Sumatera Selatan',
+    description: 'Gym dan kelas grup internasional di mall IP kota Palembang.',
+    built: '2022',
+    type: 'Wellness & Gym',
+    schedule: {'Senin - Minggu': '06:00 - 22:00'},
+    imageAsset: 'images/loyal.png',
+    imageUrls: [
+      'images/loyal2.png',
+    ],
+    isFavorite: false,
+  ),
+
+  Gym(
+    name: 'Aris Gym & Fitness Center',
+    location: 'Jl. Sukorejo No.7/8 Blok A, 8 Ilir, Kec. Ilir Tim. II, Kota Palembang, Sumatera Selatan 30114',
+    description: 'Gym daerah yang bersih dan nyaman buat latihan rutin.',
+    built: '2020',
+    type: 'Gym',
+    schedule: {'Senin - Minggu': '07:00 - 22:00'},
+    imageAsset: 'images/aris.png',
+    imageUrls: const [],
+    isFavorite: false,
+  ),
+
+  Gym(
+    name: 'HSSE Fitness Center',
+    location: '2R5F+8M6, Jl. Beringin, Komperta, Kec. Plaju, Kota Palembang, Sumatera Selatan 30967',
+    description: 'Tempat untuk berlatih workout dan diving di daerah plaju.',
+    built: '2021',
+    type: 'Gym & Diving',
+    schedule: {'Senin - Minggu': '06:00 - 22:00'},
+    imageAsset: 'images/hse.png',
+    imageUrls: [
+      'images/hse2.png',
+      'images/hse3.png',
+    ],
+    isFavorite: false,
+  ),
+
+  Gym(
+    name: 'Curves Palembang',
+    location: 'Jl. Angkatan 45 No.2126, RT.038/RW.011, Lorok Pakjo, Kec. Ilir Bar. I, Kota Palembang, Sumatera Selatan 30137',
+    description: 'Tempat fitness untuk para wanita dengan program kebugaran ringan.',
+    built: '2019',
+    type: 'Fitness Center (wanita)',
+    schedule: {'Senin - Minggu': '10:00 - 19:00'},
+    imageAsset: 'images/curve.png',
+    imageUrls: [
+      'images/curve2.png',
+    ],
+    isFavorite: false,
+  ),
+
 
 ];
