@@ -25,7 +25,6 @@ class _SignInScreenState extends State<SignInScreen> {
     final keyString = prefs.getString('key') ?? '';
     final ivString = prefs.getString('iv') ?? '';
 
-    // ✅ Guard: kalau belum signup / data kosong
     if (encryptedUsername.isEmpty ||
         encryptedPassword.isEmpty ||
         keyString.isEmpty ||
@@ -45,7 +44,6 @@ class _SignInScreenState extends State<SignInScreen> {
 
       return {'username': decryptedUsername, 'password': decryptedPassword};
     } catch (e) {
-      // ✅ kalau format base64 rusak / beda key
       return null;
     }
   }
@@ -71,7 +69,6 @@ class _SignInScreenState extends State<SignInScreen> {
     if (enteredUsername == savedUsername && enteredPassword == savedPassword) {
       await prefs.setBool('isSignedIn', true);
 
-      // optional: simpan siapa yang login
       await prefs.setString('currentUser', savedUsername);
 
       if (!mounted) return;

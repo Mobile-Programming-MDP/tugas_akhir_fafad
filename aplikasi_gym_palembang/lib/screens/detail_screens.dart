@@ -39,12 +39,10 @@ class _DetailScreenState extends State<DetailScreen> {
   Future<void> _toggleFavorite() async {
     final prefs = await SharedPreferences.getInstance();
 
-    // ✅ cek status login real dari prefs (bukan variabel default)
     final signedIn = prefs.getBool('isSignedIn') ?? false;
     if (!signedIn) {
       if (!mounted) return;
       Navigator.pushNamed(context, '/signin').then((_) {
-        // setelah balik dari signin, reload status
         _loadStatus();
       });
       return;
@@ -58,6 +56,65 @@ class _DetailScreenState extends State<DetailScreen> {
       isSignedIn = true;
       isFavorite = newStatus;
     });
+  }
+
+
+  String _typeText() {
+    final sec = (widget.gym.secondaryType ?? '').trim();
+    if (sec.isEmpty) return widget.gym.type;
+    return '${widget.gym.type} • $sec';
+  }
+
+  Widget _buildRatingChip() {
+    final double rating = widget.gym.rating;
+    final int count = widget.gym.ratingCount;
+
+    if (rating <= 0 || count <= 0) {
+      return Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        decoration: BoxDecoration(
+          color: Colors.blueGrey[50],
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: Colors.blueGrey.shade100),
+        ),
+        child: const Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.star_border, size: 16, color: Colors.orange),
+            SizedBox(width: 6),
+            Text(
+              'Belum ada rating',
+              style: TextStyle(fontSize: 12, color: Colors.black54),
+            ),
+          ],
+        ),
+      );
+    }
+
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+      decoration: BoxDecoration(
+        color: Colors.orange[50],
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Colors.orange.shade200),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Icon(Icons.star, size: 16, color: Colors.orange),
+          const SizedBox(width: 6),
+          Text(
+            rating.toStringAsFixed(1),
+            style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
+          ),
+          const SizedBox(width: 6),
+          Text(
+            '($count)',
+            style: const TextStyle(fontSize: 12, color: Colors.black54),
+          ),
+        ],
+      ),
+    );
   }
 
   @override
@@ -81,7 +138,8 @@ class _DetailScreenState extends State<DetailScreen> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.blueGrey[100]?.withOpacity(0.8),
@@ -95,7 +153,6 @@ class _DetailScreenState extends State<DetailScreen> {
                 ),
               ],
             ),
-
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
@@ -106,9 +163,13 @@ class _DetailScreenState extends State<DetailScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        widget.gym.name,
-                        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      Expanded(
+                        child: Text(
+                          widget.gym.name,
+                          style: const TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
                       IconButton(
                         onPressed: _toggleFavorite,
@@ -120,20 +181,31 @@ class _DetailScreenState extends State<DetailScreen> {
                     ],
                   ),
 
+                  _buildRatingChip(),
+
                   const SizedBox(height: 16),
+
                   Row(
                     children: [
                       const Icon(Icons.place, color: Colors.red),
                       const SizedBox(width: 8),
-                      const SizedBox(width: 70, child: Text('Lokasi', style: TextStyle(fontWeight: FontWeight.bold))),
-                      Text(': ${widget.gym.location}'),
+                      const SizedBox(
+                        width: 70,
+                        child: Text('Lokasi',
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                      ),
+                      Expanded(child: Text(': ${widget.gym.location}')),
                     ],
                   ),
                   Row(
                     children: [
                       const Icon(Icons.calendar_month, color: Colors.blue),
                       const SizedBox(width: 8),
-                      const SizedBox(width: 70, child: Text('Dibangun', style: TextStyle(fontWeight: FontWeight.bold))),
+                      const SizedBox(
+                        width: 70,
+                        child: Text('Dibangun',
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                      ),
                       Text(': ${widget.gym.built}'),
                     ],
                   ),
@@ -141,8 +213,12 @@ class _DetailScreenState extends State<DetailScreen> {
                     children: [
                       const Icon(Icons.house, color: Colors.green),
                       const SizedBox(width: 8),
-                      const SizedBox(width: 70, child: Text('Tipe', style: TextStyle(fontWeight: FontWeight.bold))),
-                      Text(': ${widget.gym.type}'),
+                      const SizedBox(
+                        width: 70,
+                        child: Text('Tipe',
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                      ),
+                      Expanded(child: Text(': ${_typeText()}')),
                     ],
                   ),
 
@@ -150,14 +226,19 @@ class _DetailScreenState extends State<DetailScreen> {
                   Divider(color: Colors.blueGrey.shade100),
                   const SizedBox(height: 16),
 
-                  const Text('Deskripsi', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                  const Text('Deskripsi',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 16),
-                  Text(widget.gym.description, style: const TextStyle(fontSize: 14)),
+                  Text(widget.gym.description,
+                      style: const TextStyle(fontSize: 14)),
 
                   const SizedBox(height: 16),
                   Divider(color: Colors.blueGrey.shade100),
 
-                  const Text('Galeri', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                  const Text('Galeri',
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 10),
                   SizedBox(
                     height: 100,
@@ -179,7 +260,8 @@ class _DetailScreenState extends State<DetailScreen> {
                                 height: 120,
                                 color: Colors.grey[50],
                               ),
-                              errorWidget: (context, url, error) => const Icon(Icons.error),
+                              errorWidget: (context, url, error) =>
+                                  const Icon(Icons.error),
                             ),
                           ),
                         );
@@ -187,7 +269,8 @@ class _DetailScreenState extends State<DetailScreen> {
                     ),
                   ),
                   const SizedBox(height: 4),
-                  const Text('Tap untuk memperbesar', style: TextStyle(fontSize: 12, color: Colors.black54)),
+                  const Text('Foto lainnya',
+                      style: TextStyle(fontSize: 12, color: Colors.black54)),
                 ],
               ),
             ),

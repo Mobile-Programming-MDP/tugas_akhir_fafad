@@ -55,7 +55,6 @@ class _SearchScreenState extends State<SearchScreen> {
       ),
       body: Column(
         children: [
-          // ===== Header berwarna (selaras dengan Home) =====
           Container(
             width: double.infinity,
             padding: EdgeInsets.fromLTRB(16, topPadding + 64, 16, 16),
@@ -135,7 +134,6 @@ class _SearchScreenState extends State<SearchScreen> {
 
           const SizedBox(height: 12),
 
-          // ===== Content =====
           Expanded(
             child: _filteredGyms.isEmpty
                 ? const _EmptyResult()

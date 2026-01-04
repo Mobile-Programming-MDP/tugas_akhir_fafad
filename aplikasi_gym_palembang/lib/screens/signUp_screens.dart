@@ -45,7 +45,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       return;
     }
 
-    // ✅ lebih baik random
+   
     final encrypt.Key key = encrypt.Key.fromSecureRandom(32);
     final encrypt.IV iv = encrypt.IV.fromSecureRandom(16);
 
@@ -55,17 +55,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
     final encryptedUsername = encrypter.encrypt(username, iv: iv).base64;
     final encryptedPassword = encrypter.encrypt(password, iv: iv).base64;
 
-    // ✅ pastikan tersimpan
+    
     await prefs.setString('fullname', encryptedName);
     await prefs.setString('username', encryptedUsername);
     await prefs.setString('password', encryptedPassword);
     await prefs.setString('key', key.base64);
     await prefs.setString('iv', iv.base64);
 
-    // ✅ penting: status login awal false
+    
     await prefs.setBool('isSignedIn', false);
 
-    // optional: tandai akun ada
+   
     await prefs.setBool('hasAccount', true);
 
     if (!mounted) return;

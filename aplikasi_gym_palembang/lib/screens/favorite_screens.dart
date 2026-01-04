@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'package:aplikasi_gym_palembang/Models/Gym.dart';
 import 'package:aplikasi_gym_palembang/data/gym_data.dart';
 import 'package:aplikasi_gym_palembang/screens/detail_screens.dart';
@@ -49,7 +48,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
     });
   }
 
-  // Header berwarna biar selaras dengan Home/Search yang kamu mau
+
   Widget _buildHeader() {
     return Container(
       padding: const EdgeInsets.fromLTRB(16, 18, 16, 18),
